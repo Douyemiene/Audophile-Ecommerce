@@ -12,7 +12,7 @@ export const Nav = () => {
     }
   };
   return (
-    <div className="bg-black flex text-white justify-between items-center py-8 px-6">
+    <div className=" flex text-white justify-between items-center py-8 px-6">
       <NavIcon className={navState} onClick={onToggleNav}>
         <span></span>
         <span></span>
@@ -21,17 +21,17 @@ export const Nav = () => {
         <span></span>
         <span></span>
       </NavIcon>
-      <span className="text-2xl font-semibold">audophile</span>
+      <span className="text-2xl font-bold">audophile</span>
       <AiOutlineShoppingCart size={23} className="" />
     </div>
   );
 };
 
 const NavIcon = styled.div`
-  width: 23px;
-  height: 20px;
+  width: 16px;
+  height: 15px;
   position: relative;
-  background: black;
+  background: #000;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
@@ -105,12 +105,12 @@ const NavIcon = styled.div`
 
   &.open span:nth-child(1) {
     left: 2px;
-    top: 4px;
+    top: 2px;
   }
 
   &.open span:nth-child(2) {
-    left: calc(50% - 2px);
-    top: 4px;
+    left: calc(50% - 1px);
+    top: 2px;
   }
 
   &.open span:nth-child(3) {
@@ -125,11 +125,11 @@ const NavIcon = styled.div`
 
   &.open span:nth-child(5) {
     left: 2px;
-    top: 12px;
+    top: 7.5px;
   }
 
   &.open span:nth-child(6) {
-    left: calc(50% - 2px);
-    top: 12px;
+    left: calc(50% - 1px);
+    top: 7.5px;
   }
 `;
