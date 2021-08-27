@@ -12,7 +12,7 @@ export const Nav = () => {
     }
   };
   return (
-    <div className=" flex text-white justify-between items-center py-8 px-6">
+    <div className=" flex text-white justify-between items-center py-6 px-6 absolute w-full">
       <NavIcon className={navState} onClick={onToggleNav}>
         <span></span>
         <span></span>

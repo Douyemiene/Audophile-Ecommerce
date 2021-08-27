@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import styled from "styled-components";
+
 //components
 import { ButtonOne } from "../components/Buttons";
 import { Nav } from "../components/Nav";
@@ -12,18 +12,23 @@ import {
   HeaderFive,
   HeaderSix,
 } from "../components/Headings";
-//assets
-//  "header-mobile": "url('')",
-//         "header-mobile": "url('')",
+import { HomeShopItem } from "../components/HomeShopItem";
+import { HomeShopItemProps } from "../components/HomeShopItem";
 
-// const Header = styled.header`
-//   height: 100vh;
-
-//   color: #fff;
-// `;
-
-// background: url() 1440px,
-//     url(/assets/home/tablet/image-header.jpg) 1440px, url() 750px;
+const categories: HomeShopItemProps[] = [
+  {
+    image: "assets/category-headphones/mobile/image-xx99-mark-onee.png",
+    imageName: "Headphones",
+  },
+  {
+    image: "assets/category-speakers/mobile/image-zx9.jpg",
+    imageName: "Headphones",
+  },
+  {
+    image: "assets/category-headphones/mobile/image-xx99-mark-one.jpg",
+    imageName: "Headphones",
+  },
+];
 
 const Home: NextPage = () => {
   return (
@@ -35,10 +40,10 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <header className="flex flex-col h-screen bg-center bg-cover bg-header-mobile md:bg-header-tablet lg:bg-header-desktop text-white">
+        <header className="flex flex-col h-screen bg-center bg-contain bg-header-mobile md:bg-header-tablet lg:bg-header-desktop text-white">
           <Nav />
 
-          <div className="flex flex-col h-full justify-center items-center px-4">
+          <div className="flex flex-col flex-grow justify-center items-center px-4">
             <HeaderSix>NEW PRODUCT</HeaderSix>
             <HeaderThree>
               XX99 MARK II <br /> HEADPHONES
@@ -47,9 +52,14 @@ const Home: NextPage = () => {
               Experience natural, lifelike audio and exceptional build quality
               made for the passionate music enthusiast.
             </p>
-            <ButtonOne text="SEE PRODUCT" extraStyle="py-2" />
+            <ButtonOne text="SEE PRODUCT" extraStyle="py-5 font-bold" />
           </div>
         </header>
+        <section className="py-20 px-6">
+          {categories.map(({ image, imageName }, index) => (
+            <HomeShopItem key={index} image={image} imageName={imageName} />
+          ))}
+        </section>
       </main>
 
       <footer className=""></footer>

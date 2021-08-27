@@ -6,9 +6,11 @@ module.exports = {
       colors: {
         primary: "#D87D4A",
         primaryHover: "#FBAF85",
+        gray: "#F1F1F1",
       },
       backgroundImage: (theme) => ({
-        "header-mobile": "url('/assets/home/mobile/image-header.jpg')",
+        "header-mobile":
+          "linear-gradient(to bottom, rgba(0,0,0,0.9),rgba(0,0,0,0.3)), url('/assets/home/mobile/image-header.jpg')",
         "header-tablet": "url('/assets/home/tablet/image-header.jpg')",
         "header-desktop": "url('/assets/home/desktop/image-hero.jpg')",
       }),
