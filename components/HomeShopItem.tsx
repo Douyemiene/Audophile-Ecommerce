@@ -10,7 +10,7 @@ export type HomeShopItemProps = {
 export const HomeShopItem = ({ image, imageName }: HomeShopItemProps) => (
   <div className="relative bg-gray flex flex-col items-center justify-end h-40 pb-6 mb-20 rounded">
     <img
-      className="w-24 h-30 absolute -top-12"
+      className="w-16 h-24 absolute -top-12"
       src={image}
       alt={`${imageName}`}
     />
