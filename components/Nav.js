@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
-export const Nav = () => {
+const Nav = () => {
   const [navState, setNavState] = useState(""); //typescript typescript typescript
   const onToggleNav = () => {
     if (navState) {
@@ -133,3 +133,5 @@ const NavIcon = styled.div`
     top: 7.5px;
   }
 `;
+
+export default Nav;

@@ -2,19 +2,13 @@ import type { NextPage } from "next";
 import Head from "next/head";
 
 //components
-import { Button, ButtonOne, ButtonTwo } from "../components/Buttons";
-import { Nav } from "../components/Nav";
-import {
-  HeaderOne,
-  HeaderTwo,
-  HeaderThree,
-  HeaderFour,
-  HeaderFive,
-  HeaderSix,
-} from "../components/Headings";
-import { HomeShopItem } from "../components/HomeShopItem";
+import { ButtonOne, ButtonTwo } from "../components/Buttons";
+import Nav from "../components/Nav";
+import { HeaderThree, HeaderSix } from "../components/Headings";
+import HomeShopItem from "../components/HomeShopItem";
 import { HomeShopItemProps } from "../components/HomeShopItem";
 import BeforeFooter from "../components/BeforeFooter";
+import Footer from "../components/Footer";
 
 const categories: HomeShopItemProps[] = [
   {
@@ -109,7 +103,7 @@ const Home: NextPage = () => {
         <BeforeFooter />
       </main>
 
-      <footer className=""></footer>
+      <Footer />
       <style jsx>{`
         .zx9 {
           height: 600px;
