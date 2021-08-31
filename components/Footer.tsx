@@ -18,8 +18,8 @@ const Footer = () => {
         <li>EARPHONES</li>
       </ul>
       <p className="my-6 text-center text-sm">
-        Audiophile is an all in one stop to fulfill your audio needs. We're a
-        small team of music lovers and sound specialists who are devoted to
+        Audiophile is an all in one stop to fulfill your audio needs. We&apos;re
+        a small team of music lovers and sound specialists who are devoted to
         helping you get the most out of personal audio. Come and visit our demo
         facility - we’re open 7 days a week.
       </p>

@@ -11,7 +11,7 @@ import { SharedCategory } from "../components/SharedCategory";
 
 const Home: NextPage = () => {
   return (
-    <LandingLayout title="now">
+    <LandingLayout title="home">
       <header className="flex flex-col h-screen bg-center bg-contain bg-header-mobile md:bg-header-tablet lg:bg-header-desktop text-white">
         <Nav />
 

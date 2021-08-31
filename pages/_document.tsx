@@ -5,10 +5,16 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <style>
-            @import
-            url('https://fonts.googleapis.com/css2?family=Manrope&family=Mulish&display=swap');
-          </style>
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin="true"
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Manrope&display=swap"
+            rel="stylesheet"
+          />
         </Head>
         <body>
           <Main />
