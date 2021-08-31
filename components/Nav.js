@@ -21,7 +21,11 @@ const Nav = () => {
         <span></span>
         <span></span>
       </NavIcon>
-      <span className="text-2xl font-bold">audophile</span>
+      <img
+        src="/assets/shared/mobile/audiophile.svg"
+        className="
+      mt-2"
+      />
       <AiOutlineShoppingCart size={23} className="" />
     </div>
   );

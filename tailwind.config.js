@@ -1,13 +1,16 @@
 module.exports = {
   purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   darkMode: false, // or 'media' or 'class'
-  important: true,
   theme: {
     extend: {
+      fontFamily: {
+        manrope: ["Manrope", "sans-serif"],
+        mulish: ["Mulish", "sans-serif"],
+      },
       colors: {
         primary: "#D87D4A",
         primaryHover: "#FBAF85",
-        gray: "#F1F1F1",
+        mygray: "#F1F1F1",
       },
       backgroundImage: (theme) => ({
         "header-mobile":

@@ -24,9 +24,7 @@ export const ButtonTwo = ({ text, extraStyle, inverted }: ButtonOneProps) => {
   }
 
   return (
-    <div
-      className={`${colors} ${extraStyle}  font-semibold px-10 py-1 shadow `}
-    >
+    <div className={`${colors} ${extraStyle}  font-semibold px-8 py-1 shadow `}>
       {text}
     </div>
   );
