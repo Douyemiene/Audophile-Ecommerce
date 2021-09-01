@@ -5,8 +5,6 @@ import { LandingLayout } from "../components/LandingLayout";
 import { ButtonOne, ButtonTwo } from "../components/Buttons";
 import Nav from "../components/Nav";
 import { HeaderThree, HeaderTwo } from "../components/Headings";
-import BeforeFooter from "../components/BeforeFooter";
-import Footer from "../components/Footer";
 import { SharedCategory } from "../components/SharedCategory";
 
 const Home: NextPage = () => {
@@ -78,10 +76,8 @@ const Home: NextPage = () => {
             />
           </div>
         </section>
-        <BeforeFooter />
       </main>
 
-      <Footer />
       <style jsx>{`
         .zx9 {
           height: 600px;

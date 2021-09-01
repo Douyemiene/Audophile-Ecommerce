@@ -1,5 +1,5 @@
 import React from "react";
-import { HeaderFive, HeaderSix, HeaderThree } from "./Headings";
+import { HeaderSix } from "./Headings";
 import { BiChevronRight } from "react-icons/bi";
 
 export type HomeShopItemProps = {
@@ -11,7 +11,7 @@ const HomeShopItem = ({ image, imageName }: HomeShopItemProps) => (
   <div className="relative bg-mygray flex flex-col items-center justify-end h-48 pb-6 mb-20 rounded">
     <img className="w-22 absolute -top-12 " src={image} alt={`${imageName}`} />
     <img
-      src="assets/shared/mobile/oval-shadow.png"
+      src="/assets/shared/mobile/oval-shadow.png"
       className="absolute top-2"
     />
 

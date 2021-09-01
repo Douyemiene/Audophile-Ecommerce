@@ -8,9 +8,10 @@ import Footer from "../components/Footer";
 type Props = {
   title: string;
   children: ReactNode;
+  nav?: ReactNode;
 };
 
-export const LandingLayout = ({ title, children }: Props) => {
+export const LandingLayout = ({ title, children, nav }: Props) => {
   return (
     <div className="">
       <Head>
@@ -18,8 +19,10 @@ export const LandingLayout = ({ title, children }: Props) => {
         <meta name="description" content="" />
         <link rel="icon" href="/favicon-32x32.png" />
       </Head>
-
+      {nav && <Nav />}
       {children}
+      <BeforeFooter />
+      <Footer />
     </div>
   );
 };
