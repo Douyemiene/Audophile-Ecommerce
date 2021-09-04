@@ -5,7 +5,7 @@ type ButtonOneProps = {
 };
 
 export const Button = ({ text, extraStyle }: ButtonOneProps) => (
-  <div className={`${extraStyle} text-white px-10 py-1 shadow `}>{text}</div>
+  <div className={`${extraStyle} text-black px-10 py-1 shadow `}>{text}</div>
 );
 
 export const ButtonOne = ({ text, extraStyle }: ButtonOneProps) => (

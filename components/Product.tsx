@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import { ButtonOne } from "./Buttons";
 import { HeaderTwo } from "./Headings";
 
@@ -19,12 +20,16 @@ const Product = ({
   details,
   dontCenter,
 }: ProductType) => {
-  const [center, setcenter] = useState("text-center");
-  if (dontCenter) {
-    setcenter("");
-  }
+  const [center, setCenter] = useState("text-center");
+  const [marginBottom, setMarginBottom] = useState("pb-20");
+  useEffect(() => {
+    if (dontCenter) {
+      setCenter("");
+      setMarginBottom("pb-4");
+    }
+  }, []);
   return (
-    <div className="flex flex-col pb-20">
+    <div className={`flex flex-col ${marginBottom}`}>
       <img src={image} />
       {newProduct && (
         <p
