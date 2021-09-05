@@ -9,45 +9,33 @@ import { useRouter } from "next/router";
 import { Button, ButtonOne } from "./Buttons";
 import { HeaderFour } from "./Headings";
 
-type Props = {
+export type ProductDetails = {
+  image: string;
+  productName: string;
+  newProduct: boolean;
   title: string;
-  children: ReactNode;
+  details: string;
+  amount: number;
+  features: string;
+  inTheBox: string[];
 };
 
-const placeHolder = {
-  image: "/assets/product-yx1-earphones/mobile/image-product.jpg",
-  productName: "YX1 WIRELESS",
-  newProduct: true,
-  title: "Earphone",
-  details:
-    "Tailor your listening experience with bespoke dynamic drivers from the new YX1 Wireless Earphones. Enjoy incredible high-fidelity sound even in noisy environments with its active noise cancellation feature.",
-  amount: 2344,
-  features: `As the headphones all others are measured against, the XX99 Mark I demonstrates over five decades of audio expertise, redefining the critical
-         listening experience. This pair of closed-back headphones are made of industrial, aerospace-grade materials to emphasize durability at a relatively light weight of 11 oz. 
-
-      From the handcrafted microfiber ear cushions to the robust metal headband with inner damping element, the components work together to deliver comfort and uncompromising sound. 
-      Its closed-back design delivers up to 27 dB of passive noise cancellation, reducing resonance by reflecting sound to a dedicated absorber. For connectivity, a specially tuned cable is included with a balanced gold connector.`,
-  inTheBox: [
-    "1x Headphone Unit",
-    "1x Headphone unit",
-    "2x Replacement earcups",
-    "1x User manual",
-    "1x 3.5mm 5m audio cable",
-    "1x Travel bag ",
-  ],
-};
-
-const ProductDetailContainer = ({ title, children }: Props) => {
+const ProductDetailContainer = ({
+  productDetails,
+}: {
+  productDetails: ProductDetails;
+}) => {
   const router = useRouter();
   const {
     image,
     productName,
     newProduct,
+    title,
     details,
     amount,
     features,
     inTheBox,
-  } = placeHolder;
+  } = productDetails;
   return (
     <div className="">
       <Head>
@@ -85,8 +73,8 @@ const ProductDetailContainer = ({ title, children }: Props) => {
         <div className="mt-12 mb-16">
           <HeaderFour extraStyle="mb-2">In the Box</HeaderFour>
           <p>
-            {inTheBox.map((item) => (
-              <p>
+            {inTheBox.map((item, id) => (
+              <p key={id}>
                 <span className="text-primary font-semibold pr-3">
                   {item.slice(0, 2)}
                 </span>{" "}
