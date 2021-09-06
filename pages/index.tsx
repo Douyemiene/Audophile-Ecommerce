@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import { LandingLayout } from "../components/LandingLayout";
-
+import Link from "next/link";
 //components
 import { ButtonOne, ButtonTwo } from "../components/Buttons";
 import Nav from "../components/Nav";

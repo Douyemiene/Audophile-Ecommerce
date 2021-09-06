@@ -1,7 +1,7 @@
 interface details {
   [index: string]: Object;
 }
-export const productDetails: details = {
+export const productDetailsData: details = {
   yx1wireless: {
     image: "/assets/product-yx1-earphones/mobile/image-product.jpg",
     productName: "YX1 WIRELESS",

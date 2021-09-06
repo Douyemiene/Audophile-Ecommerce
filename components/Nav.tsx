@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import Cart from "../components/Cart";
 
 const Nav = () => {
   const [navState, setNavState] = useState(""); //typescript typescript typescript
+  const [cart, setCart] = useState(true);
   const onToggleNav = () => {
     if (navState) {
       setNavState("");
@@ -12,7 +14,7 @@ const Nav = () => {
     }
   };
   return (
-    <div className=" flex text-white bg-black justify-between items-center py-6 px-6 w-full">
+    <div className=" flex text-white bg-black justify-between items-center py-6 px-5 w-full relative">
       <NavIcon className={navState} onClick={onToggleNav}>
         <span></span>
         <span></span>
@@ -26,7 +28,11 @@ const Nav = () => {
         className="
       mt-2"
       />
-      <AiOutlineShoppingCart size={23} className="" />
+      <AiOutlineShoppingCart
+        size={23}
+        onClick={() => setCart((cart) => !cart)}
+      />
+      {cart && <Cart />}
     </div>
   );
 };

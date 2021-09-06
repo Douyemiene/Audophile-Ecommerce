@@ -4,11 +4,11 @@ import ProductDetailContainer from "../../components/ProductDetailContainer";
 import { productDetails } from "../../components/ProductData";
 import { ProductDetails } from "../../components/ProductDetailContainer";
 
-export const Product = ({
-  productDescription,
-}: {
+type Props = {
   productDescription: ProductDetails;
-}) => {
+};
+
+export const Product = ({ productDescription }: Props) => {
   return (
     <div>
       <ProductDetailContainer productDetails={productDescription} />
