@@ -1,7 +1,6 @@
 import React from "react";
-import Nav from "../../components/Nav";
 import ProductDetailContainer from "../../components/ProductDetailContainer";
-import { productDetails } from "../../components/ProductData";
+import { productDetailsData } from "../../components/ProductData";
 import { ProductDetails } from "../../components/ProductDetailContainer";
 
 type Props = {
@@ -17,7 +16,7 @@ export const Product = ({ productDescription }: Props) => {
 };
 
 export const getStaticPaths = async () => {
-  const paths = Object.keys(productDetails).map((productName) => ({
+  const paths = Object.keys(productDetailsData).map((productName) => ({
     params: { name: productName },
   }));
 
@@ -33,7 +32,8 @@ export const getStaticProps = async ({
   params: { name: string };
 }) => {
   const name = params.name;
-  const productDescription = productDetails[`${name}`];
+  const productDescription = productDetailsData[`${name}`];
+
   return {
     props: { productDescription },
   };

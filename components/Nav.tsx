@@ -5,7 +5,7 @@ import Cart from "../components/Cart";
 
 const Nav = () => {
   const [navState, setNavState] = useState(""); //typescript typescript typescript
-  const [cart, setCart] = useState(true);
+  const [cart, setCart] = useState(false);
   const onToggleNav = () => {
     if (navState) {
       setNavState("");

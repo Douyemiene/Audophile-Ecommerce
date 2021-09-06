@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import { LandingLayout } from "../components/LandingLayout";
-import Link from "next/link";
+import router, { useRouter } from "next/router";
+
 //components
 import { ButtonOne, ButtonTwo } from "../components/Buttons";
 import Nav from "../components/Nav";
@@ -24,7 +25,13 @@ const Home: NextPage = () => {
             Experience natural, lifelike audio and exceptional build quality
             made for the passionate music enthusiast.
           </p>
-          <ButtonOne text="SEE PRODUCT" extraStyle="py-5 font-bold" />
+          <ButtonOne
+            onClick={() => {
+              router.push("/product-details/yx1wireless");
+            }}
+            text="SEE PRODUCT"
+            extraStyle="py-5 font-bold"
+          />
         </div>
       </header>
       <main>
