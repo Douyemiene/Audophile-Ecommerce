@@ -20,7 +20,7 @@ export const HeaderOne = styled(baseHeading)`
 `;
 
 export const HeaderTwo = ({ children, extraStyle }: HeaderProp) => (
-  <p className={`header  ${extraStyle} ${baseStyles}`}>
+  <p className={`header ${extraStyle} ${baseStyles}`}>
     {children}
     <style jsx>{`
       .header {

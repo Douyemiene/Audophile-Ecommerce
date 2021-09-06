@@ -5,15 +5,15 @@ import { HomeShopItemProps } from "./HomeShopItem";
 const categories: HomeShopItemProps[] = [
   {
     image: "/assets/shared/mobile/xx99-mark-one-headphones.png",
-    imageName: "Headphones",
+    imageName: "headphones",
   },
   {
     image: "/assets/shared/mobile/zx9-speaker.png",
-    imageName: "Speakers",
+    imageName: "speakers",
   },
   {
     image: "/assets/shared/mobile/yx1-earphones.png",
-    imageName: "Earphones",
+    imageName: "earphones",
   },
 ];
 

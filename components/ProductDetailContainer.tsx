@@ -43,7 +43,7 @@ const ProductDetailContainer = ({
         <meta name="description" content="" />
         <link rel="icon" href="/favicon-32x32.png" />
       </Head>
-      <Nav />
+      <Nav black />
 
       <section className="px-6 pt-6">
         <button className="mb-8" onClick={() => router.back()}>

@@ -1,20 +1,27 @@
 import React, { useState } from "react";
+import Link from "next/link";
 import styled from "styled-components";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import Cart from "../components/Cart";
 
-const Nav = () => {
+const Nav = ({ black }: { black?: boolean }) => {
   const [navState, setNavState] = useState(""); //typescript typescript typescript
   const [cart, setCart] = useState(false);
   const onToggleNav = () => {
     if (navState) {
-      setNavState("");
+      setNavState(" ");
     } else {
       setNavState("open");
     }
   };
+  let dark = "";
+  if (black) {
+    const dark = "bg-black";
+  }
   return (
-    <div className=" flex text-white bg-black justify-between items-center py-6 px-5 w-full relative">
+    <div
+      className={`${dark} flex text-white justify-between items-center py-6 lg:py-8 px-5 w-full relative lg:border-b lg:border-gray-700`}
+    >
       <NavIcon className={navState} onClick={onToggleNav}>
         <span></span>
         <span></span>
@@ -23,11 +30,29 @@ const Nav = () => {
         <span></span>
         <span></span>
       </NavIcon>
-      <img
-        src="/assets/shared/mobile/audiophile.svg"
-        className="
-      mt-2"
-      />
+      <Link href="/">
+        <a>
+          {" "}
+          <img
+            src="/assets/shared/mobile/audiophile.svg"
+            className="md:jsutify-self-end md:flex-grow mt-2"
+          />
+        </a>
+      </Link>
+      <div className="hidden xl:flex xl:flex-grow xl:justify-between xl:px-72 text-sm">
+        <Link href="/">
+          <a>HOME</a>
+        </Link>
+        <Link href="/Category/headphones">
+          <a>HEADPHONES</a>
+        </Link>
+        <Link href="/Category/speakers">
+          <a>SPEAKERS</a>
+        </Link>
+        <Link href="/Category/earphones">
+          <a>EARPHONES</a>
+        </Link>
+      </div>
       <AiOutlineShoppingCart
         size={23}
         onClick={() => setCart((cart) => !cart)}
@@ -141,6 +166,10 @@ const NavIcon = styled.div`
   &.open span:nth-child(6) {
     left: calc(50% - 1px);
     top: 7.5px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    display: none;
   }
 `;
 

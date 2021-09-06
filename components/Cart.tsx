@@ -3,7 +3,7 @@ import { ButtonOne } from "./Buttons";
 
 const Cart = () => {
   return (
-    <div className="absolute w-11/12 pb-6 py-6 px-6 rounded bg-white text-black top-24">
+    <div className="absolute w-11/12 pb-6 py-8 px-6 rounded bg-white text-black top-24">
       <div className="flex justify-between pb-6">
         <span className="font-semibold">CART (3)</span>
         <span className="underline text-sm">Remove all</span>
