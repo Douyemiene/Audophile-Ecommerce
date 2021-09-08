@@ -11,10 +11,10 @@ const BeforeFooter = () => {
         />
       </div>
       <div className="lg:w-1/2 lg:pr-10 ">
-        <HeaderFour extraStyle="font-semibold text-center lg:text-left md:w-2/3 lg:w-full md:mx-auto">
+        <HeaderFour extraStyle="font-semibold md:text-3xl text-center lg:text-left md:w-2/3 lg:w-full md:mx-auto">
           Bringing you the <span className="text-primary">best </span>audio gear
         </HeaderFour>
-        <p className="mt-3 mb-12 text-center lg:text-left md:w-3/4 lg:w-full md:mt-8 lg:mt-3 md:mx-auto lg:mx-0">
+        <p className="mt-3 mb-12 text-center lg:text-left md:w-10/12 md:text-lg lg:w-full md:mt-8 lg:mt-3 md:mx-auto lg:mx-0">
           Located at the heart of New York City, Audiophile is the premier store
           for high end headphones, earphones, speakers, and audio accessories.
           We have a large showroom and luxury demonstration rooms available for

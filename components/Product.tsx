@@ -5,6 +5,7 @@ import { HeaderTwo } from "./Headings";
 
 export type ProductType = {
   image: string;
+  imageResponsive?: string;
   newProduct?: boolean;
   productName: string;
   title: string;
@@ -14,6 +15,7 @@ export type ProductType = {
 
 const Product = ({
   image,
+  imageResponsive,
   newProduct,
   productName,
   title,
@@ -29,26 +31,29 @@ const Product = ({
     }
   }, []);
   return (
-    <div className={`flex flex-col ${marginBottom}`}>
-      <img src={image} />
-      {newProduct && (
-        <p
-          className={`text-lg font-semibold mt-6 text-primary charSpaceWidest ${center}`}
-        >
-          NEW PRODUCT
-        </p>
-      )}
-      <HeaderTwo extraStyle={`mt-4 ${center}`}>
-        {productName} <br /> {title}
-      </HeaderTwo>
-      <p className={`py-3 ${center}`}>{details}</p>
-      {center && (
-        <ButtonOne
-          text="SEE PRODUCT"
-          extraStyle="py-4 mt-6 font-bold w-2/3 mx-auto text-center"
-        />
-      )}
-
+    <div
+      className={`flex flex-col lg:flex-row md:px-10 lg:px-12 ${marginBottom}`}
+    >
+      <img src={image} srcSet={imageResponsive} className="lg:w-1/2 md:h-96" />
+      <div className="md:pt-6">
+        {newProduct && (
+          <p
+            className={`text-lg font-semibold mt-6 text-primary charSpaceWidest ${center}`}
+          >
+            NEW PRODUCT
+          </p>
+        )}
+        <HeaderTwo extraStyle={`mt-4 ${center} md:font-medium`}>
+          {productName} <br /> {title}
+        </HeaderTwo>
+        <p className={`py-3 ${center} md:text-lg`}>{details}</p>
+        {center && (
+          <ButtonOne
+            text="SEE PRODUCT"
+            extraStyle="py-4 mt-6 font-bold w-2/3 mx-auto text-center"
+          />
+        )}
+      </div>
       <style jsx>
         {`
           .charSpaceWidest {

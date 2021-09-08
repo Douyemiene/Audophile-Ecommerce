@@ -11,6 +11,8 @@ const Earphones: NextPage = () => {
   const products: ProductType[] = [
     {
       image: "/assets/product-yx1-earphones/mobile/image-product.jpg",
+      imageResponsive:
+        "/assets/product-yx1-earphones/mobile/image-product.jpg 654w, /assets/product-yx1-earphones/tablet/image-product.jpg 562w, /assets/product-yx1-earphones/desktop/image-product.jpg 1080w",
       productName: "YX1 WIRELESS",
       newProduct: true,
       title: "Earphone",

@@ -16,7 +16,7 @@ const Nav = ({ black }: { black?: boolean }) => {
   };
   let dark = "";
   if (black) {
-    const dark = "bg-black";
+    dark = "bg-black";
   }
   return (
     <div

@@ -43,7 +43,7 @@ const ProductDetailContainer = ({
         <meta name="description" content="" />
         <link rel="icon" href="/favicon-32x32.png" />
       </Head>
-      <Nav black />
+      <Nav black={true} />
 
       <section className="px-6 pt-6">
         <button className="mb-8" onClick={() => router.back()}>
@@ -64,7 +64,6 @@ const ProductDetailContainer = ({
           <ButtonOne text="add to cart" />
         </div>
       </section>
-
       <section className="px-6 pt-12">
         <div>
           <HeaderFour>FEATURES</HeaderFour>
@@ -84,7 +83,6 @@ const ProductDetailContainer = ({
           </p>
         </div>
       </section>
-
       <BeforeFooter />
       <Footer />
     </div>

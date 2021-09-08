@@ -10,7 +10,7 @@ let iconSize = 25;
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white flex flex-col items-center px-6 lg:px-24 py-6">
+    <footer className="bg-black text-white flex flex-col items-center px-6 lg:px-24 py-6 md:py-8">
       <Link href="/">
         <a className=" py-3 md:w-full">
           <img

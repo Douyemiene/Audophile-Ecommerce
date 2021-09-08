@@ -12,6 +12,8 @@ const Headpones: NextPage = () => {
     {
       image:
         "/assets/product-xx99-mark-two-headphones/mobile/image-product.jpg",
+      imageResponsive:
+        "/assets/product-xx99-mark-two-headphones/mobile/image-product.jpg 654w, /assets/product-xx99-mark-two-headphones/tablet/image-product.jpg 562w, /assets/product-xx99-mark-two-headphones/desktop/image-product.jpg 1080w",
       productName: " XX99 MARK II",
       newProduct: true,
       title: "headpone",
@@ -21,6 +23,8 @@ const Headpones: NextPage = () => {
     {
       image:
         "/assets/product-xx99-mark-one-headphones/mobile/image-product.jpg",
+      imageResponsive:
+        "/assets/product-xx99-mark-one-headphones/mobile/image-product.jpg 654w, /assets/product-xx99-mark-one-headphones/tablet/image-product.jpg 562w, /assets/product-xx99-mark-one-headphones/desktop/image-product.jpg 1080w",
       productName: "XX99 MARK I",
       newProduct: false,
       title: "headpone",
@@ -29,6 +33,8 @@ const Headpones: NextPage = () => {
     },
     {
       image: "/assets/product-xx59-headphones/mobile/image-product.jpg",
+      imageResponsive:
+        "/assets/product-xx59-headphones/mobile/image-product.jpg 654w, /assets/product-xx59-headphones/tablet/image-product.jpg 562w, /assets/product-xx59-headphones/desktop/image-product.jpg 1080w",
       productName: "XX59",
       newProduct: false,
       title: "headpone",
@@ -42,10 +48,18 @@ const Headpones: NextPage = () => {
       <main>
         <section className="py-12 px-6">
           {products.map(
-            ({ image, newProduct, productName, title, details }) => (
+            ({
+              image,
+              imageResponsive,
+              newProduct,
+              productName,
+              title,
+              details,
+            }) => (
               <Product
                 key={productName}
                 image={image}
+                imageResponsive={imageResponsive}
                 newProduct={newProduct}
                 productName={productName}
                 title={title}
@@ -55,7 +69,7 @@ const Headpones: NextPage = () => {
           )}
         </section>
 
-        <section className="py-20 px-6">
+        <section className="py-20 px-6 md:px-10 md:flex md:flex-row">
           <SharedCategory />
         </section>
       </main>

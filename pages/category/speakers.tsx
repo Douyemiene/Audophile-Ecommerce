@@ -11,6 +11,8 @@ const Speakers: NextPage = () => {
   const products: ProductType[] = [
     {
       image: "/assets/product-zx9-speaker/mobile/image-product.jpg",
+      imageResponsive:
+        "/assets/product-zx9-speaker/mobile/image-product.jpg 654w, /assets/product-zx9-speaker/tablet/image-product.jpg 562w, /assets/product-zx9-speaker/mobile/image-product.jpg 1080w",
       productName: "ZX9 speaker",
       newProduct: true,
       title: "speaker",
@@ -19,6 +21,8 @@ const Speakers: NextPage = () => {
     },
     {
       image: "/assets/product-zx7-speaker/mobile/image-product.jpg",
+      imageResponsive:
+        "/assets/product-zx7-speaker/mobile/image-product.jpg 654w, /assets/product-zx7-speaker/tablet/image-product.jpg 562w, /assets/product-zx7-speaker/laptop/image-product.jpg 1080",
       productName: "ZX7 speaker",
       newProduct: false,
       title: "speaker",
