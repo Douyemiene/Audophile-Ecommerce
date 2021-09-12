@@ -2,25 +2,30 @@ import React, { useState } from "react";
 import Link from "next/link";
 import styled from "styled-components";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { MdClose } from "react-icons/md";
 import Cart from "../components/Cart";
+import Footer from "./Footer";
+import { FooterIcon } from "./FooterIcon";
 
 const Nav = ({ black }: { black?: boolean }) => {
   const [navState, setNavState] = useState(""); //typescript typescript typescript
   const [cart, setCart] = useState(false);
+  const [drop, setdrop] = useState(false);
   const onToggleNav = () => {
     if (navState) {
       setNavState(" ");
     } else {
       setNavState("open");
     }
+    setdrop((drop) => !drop);
   };
-  let dark = "";
+  let dark = "lg:border-b-1 lg:border-homeTopGray";
   if (black) {
     dark = "bg-black";
   }
   return (
     <div
-      className={`${dark} flex text-white justify-between items-center py-6 lg:py-8 px-5 w-full relative lg:border-b lg:border-gray-700`}
+      className={`${dark} flex text-white justify-between items-center py-6 lg:py-8 px-5 w-full relative `}
     >
       <NavIcon className={navState} onClick={onToggleNav}>
         <span></span>
@@ -39,17 +44,17 @@ const Nav = ({ black }: { black?: boolean }) => {
           />
         </a>
       </Link>
-      <div className="hidden xl:flex xl:flex-grow xl:justify-between xl:px-72 text-sm">
+      <div className="hidden xl:flex xl:flex-grow tracking-widest xl:justify-between xl:px-72 text-sm font-semibold">
         <Link href="/">
           <a>HOME</a>
         </Link>
-        <Link href="/Category/headphones">
+        <Link href="/category/headphones">
           <a>HEADPHONES</a>
         </Link>
-        <Link href="/Category/speakers">
+        <Link href="/category/speakers">
           <a>SPEAKERS</a>
         </Link>
-        <Link href="/Category/earphones">
+        <Link href="/category/earphones">
           <a>EARPHONES</a>
         </Link>
       </div>
@@ -58,6 +63,44 @@ const Nav = ({ black }: { black?: boolean }) => {
         onClick={() => setCart((cart) => !cart)}
       />
       {cart && <Cart />}
+      {drop && (
+        <div className="fixed py-6 top-0 w-full left-0  h-screen bg-black z-10">
+          <div className="pr-6 flex justify-between pl-6 mt-2 ">
+            <Link href="/">
+              <a>
+                {" "}
+                <img
+                  src="/assets/shared/mobile/audiophile.svg"
+                  className="md:jsutify-self-end md:flex-grow mt-2"
+                />
+              </a>
+            </Link>
+            <MdClose size={27} onClick={() => setdrop((drop) => !drop)} />
+          </div>
+          <div className="flex drop flex-col pt-16 text-xl tracking-widest pl-8 ">
+            <Link href="/">
+              <a>HOME</a>
+            </Link>
+            <Link href="/category/headphones">
+              <a>HEADPHONES</a>
+            </Link>
+            <Link href="/category/speakers">
+              <a>SPEAKERS</a>
+            </Link>
+            <Link href="/category/earphones">
+              <a>EARPHONES</a>
+            </Link>
+          </div>
+          <FooterIcon />
+        </div>
+      )}
+      <style jsx>
+        {`
+          div.drop a {
+            margin-bottom: 3rem;
+          }
+        `}
+      </style>
     </div>
   );
 };
@@ -168,7 +211,7 @@ const NavIcon = styled.div`
     top: 7.5px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media (min-width: 1280px) {
     display: none;
   }
 `;
