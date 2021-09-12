@@ -15,6 +15,9 @@ module.exports = {
         projectBlack: "#191919",
         homeTopGray: "#979797",
       },
+      borderWidth: {
+        1: "0.5px",
+      },
       backgroundImage: (theme) => ({
         "no-header": " url('/')",
         "header-mobile":

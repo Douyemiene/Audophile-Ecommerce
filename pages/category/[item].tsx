@@ -18,7 +18,7 @@ const Item = ({ products }: ItemProps) => {
     <LandingLayout title={`Category | ${title} `}>
       <SharedHeader title={title} />
       <main>
-        <section className="py-12 px-6">
+        <section className="py-12 px-6 lg:px-16">
           {Object.values(products)[0].map(
             ({
               image,

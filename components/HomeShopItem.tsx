@@ -16,7 +16,7 @@ const HomeShopItem = ({ image, imageName }: HomeShopItemProps) => (
       className="absolute top-2"
     />
 
-    <HeaderSix extraStyle="mt-4 font-semibold capitalize">
+    <HeaderSix extraStyle="mt-4 font-semibold tracking-wider uppercase">
       {imageName}
     </HeaderSix>
 

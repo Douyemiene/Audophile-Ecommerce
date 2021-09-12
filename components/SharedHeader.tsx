@@ -8,9 +8,12 @@ type Props = {
 
 export const SharedHeader = ({ title }: Props) => {
   return (
-    <header className="flex flex-col items-center bg-black text-white">
+    <header className="flex flex-col items-center bg-black text-white px-24">
       <Nav black />
-      <HeaderFive extraStyle="my-6 font-bold">{title}</HeaderFive>
+      <div className="lg:border-t lg:border-homeTopGray w-11/12" />
+      <HeaderFive extraStyle="my-6 font-medium lg:text-3xl lg:py-10 tracking-widest ">
+        {title}
+      </HeaderFive>
     </header>
   );
 };

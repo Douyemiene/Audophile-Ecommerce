@@ -50,7 +50,7 @@ const Product = ({
         {center && (
           <ButtonOne
             text="SEE PRODUCT"
-            extraStyle="py-4 mt-6 font-bold w-2/3 mx-auto text-center"
+            extraStyle="py-4 mt-6 font-bold w-2/3 lg:w-5/12 mx-auto text-center"
           />
         )}
       </div>
