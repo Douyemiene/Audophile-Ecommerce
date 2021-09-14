@@ -3,7 +3,7 @@ import Cart from "../components/Cart";
 import products from "../data/data";
 import { singleProductType } from "../data/data";
 
-type cartItem = {
+export type cartItem = {
   [index: string]: number;
 };
 
