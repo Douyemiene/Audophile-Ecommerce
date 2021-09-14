@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { ButtonOne } from "./Buttons";
+import { Button, ButtonOne } from "./Buttons";
 import { HeaderTwo } from "./Headings";
 
 export type ProductType = {
@@ -10,7 +10,7 @@ export type ProductType = {
   productName: string;
   title: string;
   details: string;
-  dontCenter?: boolean;
+  inProductPage?: boolean;
 };
 
 const Product = ({
@@ -20,21 +20,31 @@ const Product = ({
   productName,
   title,
   details,
-  dontCenter,
+  inProductPage,
 }: ProductType) => {
   const [center, setCenter] = useState("text-center");
-  const [marginBottom, setMarginBottom] = useState("pb-20");
+  const [styles, setStyles] = useState({
+    center: "text-center",
+    marginBottom: "pb-20",
+    image: "",
+  });
+  const [marginBottom, setMarginBottom] = useState(" pb-20");
   useEffect(() => {
-    if (dontCenter) {
+    if (inProductPage) {
       setCenter("");
-      setMarginBottom("pb-4");
+      setMarginBottom("md:flex-row items-center pb-4");
+      setStyles({ ...styles, image: "w-72 px-6" });
     }
   }, []);
   return (
     <div
-      className={`flex flex-col lg:flex-row md:px-10 lg:px-12 ${marginBottom}`}
+      className={`flex flex-col lg:flex-row md:px-6 lg:px-12 ${marginBottom}`}
     >
-      <img src={image} srcSet={imageResponsive} className="lg:w-1/2 md:h-96" />
+      <img
+        src={image}
+        srcSet={imageResponsive}
+        className={`lg:w-1/2 md:h-96 ${styles.image}`}
+      />
       <div className="md:pt-6">
         {newProduct && (
           <p
@@ -46,14 +56,34 @@ const Product = ({
         <HeaderTwo extraStyle={`mt-4 ${center} md:font-medium`}>
           {productName} <br /> {title}
         </HeaderTwo>
-        <p className={`py-3 ${center} md:text-lg`}>{details}</p>
+        <p
+          className={`py-3 ${center} md:text-lg lg:w-3/4 lg:text-center lg:mx-auto`}
+        >
+          {details}
+        </p>
         {center && (
           <ButtonOne
             text="SEE PRODUCT"
             extraStyle="py-4 mt-6 font-bold w-2/3 lg:w-5/12 mx-auto text-center"
           />
         )}
+        {inProductPage && (
+          <div className="pt-3">
+            <p className="font-semibold">$amount</p>
+            <div className="flex justify-between my-4 lg:w-3/4 lg:pl-12 h-12 text-sm">
+              <Button
+                text="1"
+                extraStyle="flex-grow w-30 mr-4 flex justify-center items-center"
+              />
+              <ButtonOne
+                text="add to cart"
+                extraStyle="flex items-center uppercase"
+              />
+            </div>
+          </div>
+        )}
       </div>
+
       <style jsx>
         {`
           .charSpaceWidest {

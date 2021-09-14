@@ -1,19 +1,32 @@
 import type { NextPage } from "next";
 import { LandingLayout } from "../components/LandingLayout";
-import router from "next/router";
+import { useRouter } from "next/router";
 
 //components
 import { ButtonOne, ButtonTwo } from "../components/Buttons";
 import Nav from "../components/Nav";
 import { HeaderThree, HeaderTwo } from "../components/Headings";
 import { SharedCategory } from "../components/SharedCategory";
+import { useEffect, useState } from "react";
 
 const Home: NextPage = () => {
+  const router = useRouter();
+  const [black, setBlack] = useState(false);
+  useEffect(() => {
+    router.prefetch("/product-details/yx1wireless");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 0) {
+        setBlack(true);
+      } else {
+        setBlack(false);
+      }
+    });
+  }, []);
   return (
     <LandingLayout title="home">
       <header className="flex flex-col lg:px-32 h-screen bg-center bg-contain bg-header-mobile md:bg-header-tablet lg:bg-header-desktop text-white">
-        <Nav />
-
+        <Nav black={black} />
         <div className="flex flex-col flex-grow justify-center items-center lg:items-start px-4 lg:w-1/2">
           <p className="text-gray-400 font-thin text-sm charSpaceWidest">
             NEW PRODUCT

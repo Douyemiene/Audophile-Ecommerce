@@ -1,16 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import styled from "styled-components";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { MdClose } from "react-icons/md";
 import Cart from "../components/Cart";
-import Footer from "./Footer";
+import { useRouter } from "next/router";
 import { FooterIcon } from "./FooterIcon";
 
 const Nav = ({ black }: { black?: boolean }) => {
-  const [navState, setNavState] = useState(""); //typescript typescript typescript
+  const router = useRouter();
+  //state
+  const [navState, setNavState] = useState("");
   const [cart, setCart] = useState(false);
   const [drop, setdrop] = useState(false);
+
+  //prefetch pages to simulate client side routing
+  useEffect(() => {
+    router.prefetch("/category/headphones");
+    router.prefetch("/category/speakers");
+    router.prefetch("/category/earphones");
+  }, []);
+
+  let dark = "lg:border-b-1 lg:border-homeTopGray";
+  if (black) {
+    dark = "bg-black";
+  }
+
   const onToggleNav = () => {
     if (navState) {
       setNavState(" ");
@@ -19,13 +34,10 @@ const Nav = ({ black }: { black?: boolean }) => {
     }
     setdrop((drop) => !drop);
   };
-  let dark = "lg:border-b-1 lg:border-homeTopGray";
-  if (black) {
-    dark = "bg-black";
-  }
+
   return (
     <div
-      className={`${dark} flex text-white justify-between items-center py-6 lg:py-8 px-5 w-full relative `}
+      className={`${dark} flex text-white justify-between items-center py-6 lg:py-8 px-5 w-full fixed lg:relative z-10`}
     >
       <NavIcon className={navState} onClick={onToggleNav}>
         <span></span>
@@ -163,52 +175,6 @@ const NavIcon = styled.div`
   & span:nth-child(5),
   & span:nth-child(6) {
     top: 12px;
-  }
-
-  &.open span:nth-child(1),
-  &.open span:nth-child(6) {
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
-    transform: rotate(45deg);
-  }
-
-  &.open span:nth-child(2),
-  &.open span:nth-child(5) {
-    -webkit-transform: rotate(-45deg);
-    -moz-transform: rotate(-45deg);
-    -o-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-  }
-
-  &.open span:nth-child(1) {
-    left: 2px;
-    top: 2px;
-  }
-
-  &.open span:nth-child(2) {
-    left: calc(50% - 1px);
-    top: 2px;
-  }
-
-  &.open span:nth-child(3) {
-    left: -50%;
-    opacity: 0;
-  }
-
-  &.open span:nth-child(4) {
-    left: 100%;
-    opacity: 0;
-  }
-
-  &.open span:nth-child(5) {
-    left: 2px;
-    top: 7.5px;
-  }
-
-  &.open span:nth-child(6) {
-    left: calc(50% - 1px);
-    top: 7.5px;
   }
 
   @media (min-width: 1280px) {

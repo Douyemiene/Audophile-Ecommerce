@@ -21,7 +21,7 @@ export const productOfProducts: ProductofProductsType = {
       image:
         "/assets/product-xx99-mark-one-headphones/mobile/image-product.jpg",
       imageResponsive:
-        "/assets/product-xx99-mark-one-headphones/mobile/image-product.jpg 654w, /assets/product-xx99-mark-one-headphones/tablet/image-product.jpg 562w, /assets/product-xx99-mark-one-headphones/desktop/image-product.jpg 1080w",
+        "/assets/product-xx99-mark-one-headphones/mobile/image-product.jpg 654w, /assets/product-xx99-mark-one-headphones/tablet/image-category-page-preview.jpg 562w, /assets/product-xx99-mark-one-headphones/desktop/image-product.jpg 1080w",
       productName: "XX99 MARK I",
       newProduct: false,
       title: "headphone",

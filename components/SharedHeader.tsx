@@ -10,7 +10,7 @@ export const SharedHeader = ({ title }: Props) => {
   return (
     <header className="flex flex-col items-center bg-black text-white px-24">
       <Nav black />
-      <div className="lg:border-t lg:border-homeTopGray w-11/12" />
+      <div className="lg:border-t lg:border-homeTopGray w-11/12 mt-20 lg:mt-0" />
       <HeaderFive extraStyle="my-6 font-medium lg:text-3xl lg:py-10 tracking-widest ">
         {title}
       </HeaderFive>

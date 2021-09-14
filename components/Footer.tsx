@@ -20,10 +20,18 @@ const Footer = () => {
         </a>
       </Link>{" "}
       <ul className="text-xs md:text-base md:flex-row  md:w-full list font-semibold md:font-normal md:mt-8  flex flex-col items-center">
-        <li>HOME</li>
-        <li>HEADPHONES</li>
-        <li>SPEAKERS</li>
-        <li>EARPHONES</li>
+        <Link href="/">
+          <a>HOME</a>
+        </Link>
+        <Link href="/category/headphones">
+          <a>HEADPHONES</a>
+        </Link>
+        <Link href="/category/speakers">
+          <a>SPEAKERS</a>
+        </Link>
+        <Link href="/category/earphones">
+          <a>EARPHONES</a>
+        </Link>
       </ul>
       <p className="my-6 text-center md:text-left text-sm md:text-lg text-gray-400">
         Audiophile is an all in one stop to fulfill your audio needs. We&apos;re
@@ -36,17 +44,23 @@ const Footer = () => {
           Copyright 2021. All Rights Reserved
         </p>
         <div className="flex justify-around w-24">
-          <AiFillFacebook size={iconSize} />
-          <AiOutlineTwitter size={iconSize} />
-          <AiOutlineInstagram size={iconSize} />
+          <a href="www.facebook.com">
+            <AiFillFacebook size={iconSize} />
+          </a>
+          <a href="www.twitter.com">
+            <AiOutlineTwitter size={iconSize} />
+          </a>
+          <a href="www.instagram.com">
+            <AiOutlineInstagram size={iconSize} />
+          </a>
         </div>
       </div>
       <style jsx>{`
-        .list > li {
+        .list > a {
           margin-bottom: 0.75rem;
         }
         @media screen and (min-width: 768px) {
-          .list > li {
+          .list > a {
             margin-right: 1.2rem;
           }
         }

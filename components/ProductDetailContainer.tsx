@@ -8,6 +8,7 @@ import Product from "./Product";
 import { useRouter } from "next/router";
 import { Button, ButtonOne } from "./Buttons";
 import { HeaderFour } from "./Headings";
+import { useSelector } from "react-redux";
 
 export type ProductDetails = {
   image: string;
@@ -25,6 +26,7 @@ const ProductDetailContainer = ({
 }: {
   productDetails: ProductDetails;
 }) => {
+  const state = useSelector((state) => state);
   const router = useRouter();
   const {
     image,
@@ -37,7 +39,7 @@ const ProductDetailContainer = ({
     inTheBox,
   } = productDetails;
   return (
-    <div className="">
+    <div>
       <Head>
         <title>Product Detail: {title}</title>
         <meta name="description" content="" />
@@ -45,12 +47,15 @@ const ProductDetailContainer = ({
       </Head>
       <Nav black={true} />
 
-      <section className="px-6 pt-6">
-        <button className="mb-8" onClick={() => router.back()}>
+      <section className="px-6 pt-6 xl:px-12">
+        <button
+          className="mb-8 mt-20 md:24 lg:mt-4 md:text-xl"
+          onClick={() => router.back()}
+        >
           Go back
         </button>
         <Product
-          dontCenter
+          inProductPage
           key={productName}
           image={image}
           newProduct={newProduct}
@@ -58,18 +63,18 @@ const ProductDetailContainer = ({
           title={title}
           details={details}
         />
-        <p className="font-semibold">${amount}</p>
-        <div className="flex justify-between my-4">
+        {/* <p className="font-semibold">${amount}</p>
+        <div className="flex justify-between my-4 lg:w-3/4 lg:pl-12">
           <Button text="1" extraStyle="text-center w-32" />
           <ButtonOne text="add to cart" />
-        </div>
+        </div> */}
       </section>
-      <section className="px-6 pt-12">
-        <div>
+      <section className="px-6 pt-12 lg:flex lg:px-24 lg:py-24">
+        <div className="lg:w-1/2">
           <HeaderFour>FEATURES</HeaderFour>
           <p>{features}</p>
         </div>
-        <div className="mt-12 mb-16">
+        <div className="md:flex md:justify-between mt-12 mb-16 lg:w-1/2 md:px-2 lg:pl-48">
           <HeaderFour extraStyle="mb-2">In the Box</HeaderFour>
           <p>
             {inTheBox.map((item, id) => (

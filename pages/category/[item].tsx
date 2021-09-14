@@ -7,6 +7,7 @@ import { SharedCategory } from "../../components/SharedCategory";
 import { SharedHeader } from "../../components/SharedHeader";
 import { productOfProducts } from "../../data/productOfProducts";
 import { ProductType } from "../../components/Product";
+import { useAppSelector } from "../../redux/hooks";
 
 type ItemProps = {
   products: { [item: string]: ProductType[] };
@@ -14,6 +15,9 @@ type ItemProps = {
 
 const Item = ({ products }: ItemProps) => {
   const title = Object.keys(products)[0];
+
+  const AppProducts = useAppSelector((state) => state.app.products);
+
   return (
     <LandingLayout title={`Category | ${title} `}>
       <SharedHeader title={title} />

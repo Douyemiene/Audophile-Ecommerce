@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.1",
+    "@types/react-redux": "^7.1.18",
     "autoprefixer": "^10.3.2",
     "next": "11.1.0",
     "next-redux-wrapper": "^7.0.4",
