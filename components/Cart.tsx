@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { ButtonOne } from "./Buttons";
 import { useAppSelector, useAppDispatch } from "../redux/hooks";
 import { addTocart, cartItem, removeFromcart } from "../redux/appReducer";
@@ -7,7 +7,33 @@ import { singleProductType } from "../data/data";
 const Cart = () => {
   const cart = useAppSelector((state) => state.app.cart);
   const pdts = useAppSelector((state) => state.app.products);
+  let total = 0;
   const isEmpty = cart.length > 0;
+
+  const end = cart.map((item: cartItem) => {
+    const name = Object.keys(item)[0];
+    console.log("name", name);
+    const value = item[name];
+    let price = 0;
+
+    pdts.forEach((product: singleProductType) => {
+      const productName = product.slug.split("-")[0];
+      if (productName === name) {
+        price = product.price;
+        total += price * value;
+      }
+    });
+
+    return { name, value, price };
+  });
+
+  console.log("end", end);
+
+  type cartItemProperties = {
+    name: string;
+    value: number;
+    price: number;
+  };
 
   return (
     <>
@@ -17,25 +43,21 @@ const Cart = () => {
             <span className="font-semibold">CART (3)</span>
             <span className="underline text-sm">Remove all</span>
           </div>
-          {cart.map((item: cartItem) => {
-            const name = Object.keys(item)[0];
-            const value = item[name];
-            let price = 0;
-
-            pdts.map((product: singleProductType) => {
-              const productName = product.slug.split("-")[0];
-              if (productName === name) {
-                price = product.price;
-              }
-            });
-
-            return (
-              <Product key={name} name={name} quantity={value} price={price} />
-            );
-          })}
+          {end
+            .filter((pdt) => pdt.value > 0)
+            .map(({ name, value, price }: cartItemProperties) => {
+              return (
+                <Product
+                  key={name}
+                  name={name}
+                  quantity={value}
+                  price={price}
+                />
+              );
+            })}
           <div className="flex justify-between pb-6">
             <span className="font-semibold text-gray-400">TOTAL</span>
-            <span className="font-semibold">$5,346</span>
+            <span className="font-semibold">${total}</span>
           </div>
           <ButtonOne
             text="CHECKOUT"

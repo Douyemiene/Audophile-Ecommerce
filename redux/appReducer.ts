@@ -16,7 +16,13 @@ const initialState = {
   products: products,
   cart: [
     {
-      xx59: 0,
+      xx59: 1,
+    },
+    {
+      yx1: 2,
+    },
+    {
+      zx9: 3,
     },
   ],
 } as appState;
@@ -27,24 +33,38 @@ const appSlice = createSlice({
   reducers: {
     addTocart: (state, action: PayloadAction<string>) => {
       let cart = state.cart;
+      let objIndex: string = "";
 
-      cart.forEach((item, idx) => {
-        const objIndex = Object.keys(item)[0];
-        if (objIndex === action.payload) {
-          cart[idx] = { [objIndex]: cart[idx][objIndex] + 1 };
-        } else {
-          cart.push({ [objIndex]: 0 });
-        }
+      const idx = cart.findIndex((item) => {
+        objIndex = Object.keys(item)[0];
+        return objIndex === action.payload;
       });
+
+      if (objIndex === action.payload) {
+        cart[idx] = { [objIndex]: cart[idx][objIndex] + 1 };
+      } else {
+        cart.push({ [action.payload]: 0 });
+      }
     },
     removeFromcart: (state, action: PayloadAction<string>) => {
       const { cart } = state;
-      cart.forEach((item, idx) => {
-        const objIndex = Object.keys(item)[0];
-        if (objIndex === action.payload) {
-          cart[idx] = { [objIndex]: cart[idx][objIndex] - 1 };
-        }
+      let objIndex: string = "";
+
+      const idx = cart.findIndex((item, idx) => {
+        objIndex = Object.keys(item)[0];
+        return objIndex === action.payload;
       });
+
+      if (objIndex === action.payload) {
+        cart[idx] = { [objIndex]: cart[idx][objIndex] - 1 };
+      }
+
+      // cart.forEach((item, idx) => {
+      //   const objIndex = Object.keys(item)[0];
+      //   if (objIndex === action.payload) {
+      //     cart[idx] = { [objIndex]: cart[idx][objIndex] - 1 };
+      //   }
+      // });
     },
   },
 });
