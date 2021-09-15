@@ -16,10 +16,17 @@ const Nav = ({ black }: { black?: boolean }) => {
 
   //prefetch pages to simulate client side routing
   useEffect(() => {
+    const handleRouteChange = () => {
+      setdrop(false);
+    };
+    router.events.on("routeChangeStart", handleRouteChange);
+
     router.prefetch("/category/headphones");
     router.prefetch("/category/speakers");
     router.prefetch("/category/earphones");
   }, []);
+
+  //router changes
 
   let dark = "lg:border-b-1 lg:border-homeTopGray";
   if (black) {

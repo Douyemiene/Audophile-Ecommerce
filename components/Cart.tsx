@@ -12,7 +12,7 @@ const Cart = () => {
   return (
     <>
       {isEmpty ? (
-        <div className="absolute w-11/12 pb-6 py-8 px-6 rounded bg-white text-black top-24">
+        <div className="absolute w-11/12 md:w-2/3 lg:w-5/12 md:mt-4 md:right-0  pb-6 py-8 px-6 rounded bg-white text-black top-24">
           <div className="flex justify-between pb-6">
             <span className="font-semibold">CART (3)</span>
             <span className="underline text-sm">Remove all</span>
