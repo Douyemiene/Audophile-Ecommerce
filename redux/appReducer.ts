@@ -50,7 +50,7 @@ const appSlice = createSlice({
       const { cart } = state;
       let objIndex: string = "";
 
-      const idx = cart.findIndex((item, idx) => {
+      const idx = cart.findIndex((item) => {
         objIndex = Object.keys(item)[0];
         return objIndex === action.payload;
       });
@@ -58,13 +58,6 @@ const appSlice = createSlice({
       if (objIndex === action.payload) {
         cart[idx] = { [objIndex]: cart[idx][objIndex] - 1 };
       }
-
-      // cart.forEach((item, idx) => {
-      //   const objIndex = Object.keys(item)[0];
-      //   if (objIndex === action.payload) {
-      //     cart[idx] = { [objIndex]: cart[idx][objIndex] - 1 };
-      //   }
-      // });
     },
   },
 });

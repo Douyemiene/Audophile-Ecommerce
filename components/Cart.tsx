@@ -12,7 +12,7 @@ const Cart = () => {
 
   const end = cart.map((item: cartItem) => {
     const name = Object.keys(item)[0];
-    console.log("name", name);
+
     const value = item[name];
     let price = 0;
 
@@ -26,8 +26,6 @@ const Cart = () => {
 
     return { name, value, price };
   });
-
-  console.log("end", end);
 
   type cartItemProperties = {
     name: string;

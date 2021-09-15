@@ -8,10 +8,12 @@ import Nav from "../components/Nav";
 import { HeaderThree, HeaderTwo } from "../components/Headings";
 import { SharedCategory } from "../components/SharedCategory";
 import { useEffect, useState } from "react";
+import { useAppSelector } from "../redux/hooks";
 
 const Home: NextPage = () => {
   const router = useRouter();
   const [black, setBlack] = useState(false);
+  const cart = useAppSelector((state) => state.app.cart);
   useEffect(() => {
     router.prefetch("/product-details/yx1wireless");
 
@@ -40,7 +42,7 @@ const Home: NextPage = () => {
           </p>
           <ButtonOne
             onClick={() => {
-              router.push("/product-details/yx1wireless");
+              router.push("/product-details/yx1-earphones");
             }}
             text="SEE PRODUCT"
             extraStyle="py-4 text-sm "
@@ -68,7 +70,7 @@ const Home: NextPage = () => {
             </p>
             <ButtonTwo
               onClick={() => {
-                router.push("/product-details/yx2");
+                router.push("/product-details/zx9-speaker");
               }}
               text="SEE PRODUCT"
               extraStyle="bg-black w-48 py-3 md:font-normal md:text-sm"
@@ -81,6 +83,9 @@ const Home: NextPage = () => {
               ZX7-speaker
             </HeaderThree>
             <ButtonTwo
+              onClick={() => {
+                router.push("/product-details/zx7-speaker");
+              }}
               text="see product"
               extraStyle="w-48 text-center uppercase py-2"
               inverted
@@ -97,7 +102,7 @@ const Home: NextPage = () => {
             <HeaderThree extraStyle="mb-12">YX1 EARPHONES</HeaderThree>
             <ButtonTwo
               onClick={() => {
-                router.push("/product-details/yx1wireless");
+                router.push("/product-details/yx1-earphones");
               }}
               text="see product"
               extraStyle="w-48 text-center uppercase py-2"

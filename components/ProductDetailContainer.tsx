@@ -8,7 +8,7 @@ import Product from "./Product";
 import { useRouter } from "next/router";
 import { Button, ButtonOne } from "./Buttons";
 import { HeaderFour } from "./Headings";
-import { useSelector } from "react-redux";
+import { singleProductType } from "../data/data";
 
 export type ProductDetails = {
   image: string;
@@ -24,24 +24,38 @@ export type ProductDetails = {
 const ProductDetailContainer = ({
   productDetails,
 }: {
-  productDetails: ProductDetails;
+  productDetails: singleProductType;
 }) => {
-  const state = useSelector((state) => state);
   const router = useRouter();
+  // const {
+  //   image,
+  //   productName,
+  //   newProduct,
+  //   title,
+  //   details,
+  //   amount,
+  //   features,
+  //   inTheBox,
+  // } = productDetails;
+
   const {
+    slug,
+    name,
     image,
-    productName,
-    newProduct,
-    title,
-    details,
-    amount,
+    category,
+    categoryImage,
+    includes,
+    price,
+    description,
     features,
-    inTheBox,
   } = productDetails;
+
+  const imageResp = `${image.mobile} 654w, ${image.tablet} 562w, ${image.desktop} 1080w`;
+
   return (
     <div>
       <Head>
-        <title>Product Detail: {title}</title>
+        <title>Product Detail: {slug}</title>
         <meta name="description" content="" />
         <link rel="icon" href="/favicon-32x32.png" />
       </Head>
@@ -56,12 +70,15 @@ const ProductDetailContainer = ({
         </button>
         <Product
           inProductPage
-          key={productName}
-          image={image}
-          newProduct={newProduct}
-          productName={productName}
-          title={title}
-          details={details}
+          key={name}
+          slug={slug}
+          amount={price}
+          image={image.mobile}
+          imageResponsive={imageResp}
+          newProduct={productDetails.new}
+          productName={name}
+          title={category}
+          details={description}
         />
         {/* <p className="font-semibold">${amount}</p>
         <div className="flex justify-between my-4 lg:w-3/4 lg:pl-12">
@@ -69,22 +86,22 @@ const ProductDetailContainer = ({
           <ButtonOne text="add to cart" />
         </div> */}
       </section>
-      <section className="px-6 pt-12 lg:flex lg:px-24 lg:py-24">
-        <div className="lg:w-1/2">
+      <section className="px-6 pt-12 lg:flex justify-between lg:px-24 lg:py-24">
+        <div className="lg:w-5/12">
           <HeaderFour>FEATURES</HeaderFour>
           <p>{features}</p>
         </div>
-        <div className="md:flex md:justify-center mt-12 mb-16 md:text-xl lg:w-1/2 md:px-2 lg:pl-48">
+        <div className="md:flex lg:flex-col md:justify-center mt-12 mb-16 md:text-xl lg:w-1/2 md:px-2">
           <HeaderFour extraStyle="mb-2 md:mr-12 md:font-semibold">
             In the Box
           </HeaderFour>
           <p>
-            {inTheBox.map((item, id) => (
+            {includes.map((category, id) => (
               <p key={id}>
                 <span className="text-primary font-semibold pr-3">
-                  {item.slice(0, 2)}
+                  {category.quantity}
                 </span>{" "}
-                {item.slice(2)}
+                {category.item}
               </p>
             ))}
           </p>
