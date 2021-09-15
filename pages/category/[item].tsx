@@ -22,26 +22,38 @@ const Item = ({ products }: ItemProps) => {
     <LandingLayout title={`Category | ${title} `}>
       <SharedHeader title={title} />
       <main>
-        <section className="py-12 px-6 lg:px-16">
+        <section className="py-12 px-6">
           {Object.values(products)[0].map(
-            ({
-              image,
-              imageResponsive,
-              newProduct,
-              productName,
-              title,
-              details,
-            }) => (
-              <Product
-                key={productName}
-                image={image}
-                imageResponsive={imageResponsive}
-                newProduct={newProduct}
-                productName={productName}
-                title={title}
-                details={details}
-              />
-            )
+            (
+              {
+                image,
+                imageResponsive,
+                newProduct,
+                productName,
+                title,
+                details,
+              },
+              idx
+            ) => {
+              let reOrder = false;
+
+              if (idx / 2 == 0) {
+                reOrder = true;
+              }
+
+              return (
+                <Product
+                  key={productName}
+                  image={image}
+                  imageResponsive={imageResponsive}
+                  newProduct={newProduct}
+                  productName={productName}
+                  title={title}
+                  details={details}
+                  lgReorder={reOrder}
+                />
+              );
+            }
           )}
         </section>
 

@@ -74,8 +74,10 @@ const ProductDetailContainer = ({
           <HeaderFour>FEATURES</HeaderFour>
           <p>{features}</p>
         </div>
-        <div className="md:flex md:justify-between mt-12 mb-16 lg:w-1/2 md:px-2 lg:pl-48">
-          <HeaderFour extraStyle="mb-2">In the Box</HeaderFour>
+        <div className="md:flex md:justify-center mt-12 mb-16 md:text-xl lg:w-1/2 md:px-2 lg:pl-48">
+          <HeaderFour extraStyle="mb-2 md:mr-12 md:font-semibold">
+            In the Box
+          </HeaderFour>
           <p>
             {inTheBox.map((item, id) => (
               <p key={id}>
